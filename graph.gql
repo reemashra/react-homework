@@ -1,0 +1,16 @@
+const { GraphQLServer } = require('graphql-yoga');
+
+const typeDefs = `
+  type Transaction {
+    customerId: ID!
+    amount: Float!
+    date: String!
+  }
+
+  type Query {
+    transactions(startDate: String!, endDate: String!): [Transaction]!
+  }
+`;
+
+const transactions = [
+  { customerId: 'A',
